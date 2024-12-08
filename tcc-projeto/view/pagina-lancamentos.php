@@ -63,10 +63,17 @@
                 $fotoImg = base64_encode($imagem);
                 $precoFormatado = number_format($preco, 2, '.', '');
     
-                echo "<div class='col-sm-4' style='display: flex; justify-content: center; flex-direction: column'>";
-                echo "<a href='dadosProduto.php?id=$idProduto' style='text-align: center'><img src='data:image/jpeg;base64,$fotoImg' height='300' width='300' style='margin-left: auto; margin-right: auto;'></a>";
-                echo "<a href='dadosProduto.php?id=$idProduto' style='text-decoration: none; color: black'><h4 class='margin' style='text-align: center'>$referencia $nome</h4></a>";
-                echo "<h5 class='margin' style='text-align: center'>R$ $precoFormatado</h5>";
+                if($qtdEstoque > 0){
+                    echo "<div class='col-sm-4' style='display: flex; justify-content: center; flex-direction: column'>";
+                    echo "<a href='dadosProduto.php?id=$idProduto' style='text-align: center'><img src='data:image/jpeg;base64,$fotoImg' height='300' width='300' style='margin-left: auto; margin-right: auto;'></a>";
+                    echo "<a href='dadosProduto.php?id=$idProduto' style='text-decoration: none; color: black'><h4 class='margin' style='text-align: center'>$referencia $nome</h4></a>";
+                    echo "<h5 class='margin' style='text-align: center'>R$ $precoFormatado</h5>";
+                } else{
+                    echo "<div class='col-sm-4' style='display: flex; justify-content: center; flex-direction: column'>";
+                    echo "<a style='text-align: center'><img src='data:image/jpeg;base64,$fotoImg' height='300' width='300' style='margin-left: auto; margin-right: auto;'></a>";
+                    echo "<a style='text-decoration: none; color: black'><h4 class='margin' style='text-align: center'>$referencia $nome</h4></a>";
+                    echo "<h5 class='margin' style='text-align: center'>R$ $precoFormatado</h5>";
+                }
                 if($qtdEstoque == 0){
                     echo "<h5 class='margin' style='text-align: center; color: red'>Produto indisponível</h5>";
                 }

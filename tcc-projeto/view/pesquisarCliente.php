@@ -140,6 +140,15 @@
             ?>
 
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <?php
+            require_once "rodapeAdministrador.php";
+        ?>
         
 <script>
     $(document).ready(function() {
